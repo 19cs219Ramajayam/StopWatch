@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <link rel="stylesheet" href="stopWatch.css">
+    <title>Stop Watch</title>
+</head>
+<body>
+    <div class="c">
+    <div class="con">
+        <h2>Stop Watch</h2>
+  <p id="stopwatch">00:00:00</p>
+  <div class="sub">
+  <button onclick="start()"><i class="fa fa-play" aria-hidden="true"></i> start</button>
+  <button onclick="stop()"><i class="fa fa-stop" aria-hidden="true"></i> stop</button>
+</div>
+  <div class="sub">
+  <button onclick="restart()"><i class="fa fa-repeat" aria-hidden="true"></i> restart</button>
+  <button onclick="Lap()"><i class="fa fa-list-ol" aria-hidden="true"></i> Lap</button>
+</div>
+<div class="sub">
+    <button id="clear"; onclick="clear();"> <i class="fa fa-trash-o" aria-hidden="true"></i> clear all</button>
+</div>
+<div class="sub">
+  <p id="display"></p>
+</div>
+</div>
+</div>
+</body>
+<script>
+    var h=0,m=0,s=0,run=null,h1=0,m1=0,text="",n=0,c=0;
+    var clear=document.getElementById("clear");
+    function start(){
+        s++;
+        if(s>=100){s=0;m++;}
+        if(m>=100){m=0;h++;}
+        h1=(h<10)?"0"+h:h;
+        m1=(m<10)?"0"+m:m;
+        s=(s<10)?"0"+s:s;
+        document.getElementById("stopwatch").innerHTML=h1+":"+m1+":"+s;
+        run= setTimeout("start()",90);
+}
+    function stop(){
+        clearTimeout(run);
+    }
+    function Lap(){
+        document.getElementById("display").style.display="block";
+        n++
+       for(i=1;i<=n;i++){
+       var get= document.getElementById("stopwatch").innerHTML=h1+":"+m1+":"+s;
+           c++
+           text=text+c+")"+"                   "+get+"<br><br>";
+           document.getElementById("display").innerHTML=text;
+           n--;
+       }
+    }
+    clear.addEventListener("click",function(){
+        document.getElementById("display").innerHTML="";
+        text=null;
+        n=null;
+        c=null;
+        document.getElementById("display").style.display="none";
+    });
+    function restart(){
+        clearTimeout(run);
+        h=0;m=0;s=0;h1=0;m1=0;
+        document.getElementById("stopwatch").innerHTML="00:00:00";
+        document.getElementById("display").innerHTML="";
+        text=null;
+        n=null;
+        c=null;
+        document.getElementById("display").style.display="none";
+    }
+</script>
+</html>

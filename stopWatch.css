@@ -1,0 +1,89 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    background-color: cornflowerblue;
+    overflow-x: hidden;
+}
+.con{
+    background-color: cornsilk;
+    width:50%;
+    height: fit-content;
+    border-radius: 10px;
+    margin-top: 145px;
+    margin-bottom: 30px;
+
+}
+h2{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 10px;
+}
+#stopwatch{
+    text-align: center;
+    font-size: 100px;
+}
+#display{
+    display: none;
+    border: 2px solid gray;
+    width: 50%;
+    height: 300px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 25px;
+    padding-top: 10px;
+    overflow-y:scroll;
+    margin-bottom: 20px;
+}
+#clear{
+    top: 30px;
+}
+.c{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.sub{
+    display: flex;
+    justify-content: center;
+}
+button{
+    padding: 5px;
+    width: 40%;
+    margin-top: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+@media (min-width:200px) and (max-width:765px){
+    .con{
+        width: 90%;
+    }
+    #stopwatch{
+        font-size: x-large;
+    }
+    #display{
+        font-size: medium;
+    }
+    p{
+        font-size: medium;
+        margin-top: 10px;
+    }
+    button{
+        font-size: medium;
+        margin-top: 10px;
+        margin-left: 10px;
+        width: 100%;
+    }
+    
+}
+@media (min-width:766px) and (max-width:800px){
+    #stopwatch{
+        font-size: xx-large;
+    }
+    .con{
+        width: 70%;
+    }
+}
